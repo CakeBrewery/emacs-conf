@@ -60,10 +60,6 @@
   (select-frame (make-frame))
   (funcall #'command))
 
-(defun run-command-in-new-window(command)
-  (split-window-below)
-  (funcall #'command))
-
 (defun multi-term-new-window()
   (interactive)
   (let ((buf (multi-term)))
