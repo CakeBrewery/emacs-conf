@@ -16,7 +16,7 @@
 
 (setq package-enable-at-startup nil)
 (setq package-archives '(("org" . "http://orgmode.org/elpa/")
-			 ("gnu" . "http://elpa.gnu.org/packages/")
+			 ("gnu" . "http://ela.gnu.org/packages/")
 			 ("melpa" . "https://melpa.org/packages/")
 			 ("marmalade" . "http://marmalade-repo.org/packages/")))
 
@@ -40,9 +40,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("1e67765ecb4e53df20a96fb708a8601f6d7c8f02edb09d16c838e465ebe7f51b" default)))
  '(package-selected-packages
    (quote
-    (magit multi-term which-key avy counsel swiper use-package))))
+    (paganini-theme magit multi-term which-key avy counsel swiper use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -54,6 +57,9 @@
 (use-package counsel :ensure t)
 (use-package multi-term :ensure t)
 (use-package magit :ensure t)
+
+;; Themne
+(use-package paganini-theme :ensure t)
 
 (setq multi-term-program "/bin/bash")
 
@@ -106,3 +112,6 @@
 ;; disable menu bar and toolbar
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+
+
+(load-theme 'paganini)
