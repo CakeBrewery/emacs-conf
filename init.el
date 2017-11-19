@@ -42,7 +42,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (multi-term which-key avy counsel swiper use-package))))
+    (magit multi-term which-key avy counsel swiper use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -53,6 +53,7 @@
 (use-package swiper :ensure t)
 (use-package counsel :ensure t)
 (use-package multi-term :ensure t)
+(use-package magit :ensure t)
 
 (setq multi-term-program "/bin/bash")
 
@@ -72,6 +73,7 @@
   (general-define-key
    "C-s" 'swiper
    "M-x" 'counsel-M-x
+   "C-x g" 'magit-status
   )
   (general-define-key
    :states '(normal visual insert emacs)
@@ -86,6 +88,7 @@
    "fr" 'counsel-recentf
    "p" '(:ignore t :which-key "project")
    "pf" 'counsel-git
+   "g" 'magit-status
    )
 )
  
