@@ -18,7 +18,9 @@
 (setq package-archives '(("org" . "http://orgmode.org/elpa/")
 			 ("gnu" . "http://ela.gnu.org/packages/")
 			 ("melpa" . "https://melpa.org/packages/")
-			 ("marmalade" . "http://marmalade-repo.org/packages/")))
+			 ("marmalade" . "http://marmalade-repo.org/packages/")
+			 ("elpy" . "https://jorgenschaefer.github.io/packages/")))
+
 
 (package-initialize)
 
@@ -45,7 +47,7 @@
     ("1e67765ecb4e53df20a96fb708a8601f6d7c8f02edb09d16c838e465ebe7f51b" default)))
  '(package-selected-packages
    (quote
-    (paganini-theme magit multi-term which-key avy counsel swiper use-package))))
+    (jedi evil-magit paganini-theme magit multi-term which-key avy counsel swiper use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -56,7 +58,9 @@
 (use-package swiper :ensure t)
 (use-package counsel :ensure t)
 (use-package multi-term :ensure t)
-(use-package magit :ensure t)
+(use-package evil-magit :ensure t)
+(use-package elpy :ensure t)
+(use-package jedi :ensure t)
 
 ;; Themne
 (use-package paganini-theme :ensure t)
@@ -95,6 +99,7 @@
    "p" '(:ignore t :which-key "project")
    "pf" 'counsel-git
    "g" 'magit-status
+   "." 'elpy-goto-definition
    )
 )
  
@@ -115,3 +120,9 @@
 
 
 (load-theme 'paganini)
+
+; Elpy and jedi configuration for Python usefulness
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
+(elpy-enable)
+(setq elpy-rpc-backend "jedi")

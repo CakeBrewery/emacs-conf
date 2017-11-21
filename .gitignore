@@ -1,5 +1,9 @@
 elpa/
 backups/
 auto-save-list/
+.python-environments/
 network-security.data
 recentf
+
+*.dat
+*.swp
